@@ -30,7 +30,19 @@ public class Words
     Matcher m = Pattern.compile("\\w+").matcher(words);
     while (m.find()) 
     {
-      
+      String word = m.group().toLowerCase();
+      if (! NON_WORDS.contains(word))
+      {
+        if (wordMap.get(word) == null) {
+          wordMap.put(word, 1);
+        }
+        else 
+        {
+          wordMap.put(word, wordMap.get(word) + 1);
+        }
+      }
     }
+    return wordMap;
   }
+
 }
