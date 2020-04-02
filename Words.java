@@ -1,12 +1,8 @@
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.*;
+import java.util.regex.*;
 public class Words 
 {
+  // Imperative 
   private HashSet<String> NON_WORDS = new HashSet<String>()
   {{
       add("the");
@@ -65,7 +61,7 @@ public class Words
       .map(w -> w.toLowerCase())
       .filter(w -> !NON_WORDS.contains(w))
       .forEach(w -> wordMap2.put(w, wordMap2.getOrDefault(w, 0) + 1));
-    
+      // Clojure's threading macro's are a great re-envisioning of this
     return wordMap2;
   }
 }
