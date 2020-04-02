@@ -57,7 +57,7 @@ public class Words
   public Map wordFreq2(String words)
   {
     TreeMap<String, Integer> wordMap2 = new TreeMap<String, Integer>();
-    regexToList(words, "\\w+").stream()
+    regexToList(words, "\\w+").stream() // streams are important here, but we need to research them.
       .map(w -> w.toLowerCase())
       .filter(w -> !NON_WORDS.contains(w))
       .forEach(w -> wordMap2.put(w, wordMap2.getOrDefault(w, 0) + 1));
